@@ -2,11 +2,12 @@
 
 $amount = $_POST['amount'];
 $description = $_POST['description'];
+$expense_date = $_POST['expense_date'];
 
 include("dbcon.php");
 
-$sql = "insert into expenses(amount,description) values ";
-$sql .= "('$amount','$description')";
+$sql = "insert into expenses(amount,description,expense_date) values ";
+$sql .= "('$amount','$description','$expense_date')";
 
 if (mysqli_query($conn, $sql)) {
   echo "Expense added successfully";
