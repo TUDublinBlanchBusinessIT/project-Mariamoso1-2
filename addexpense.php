@@ -1,3 +1,7 @@
+<?php
+session_start();
+$_SESSION['user'] = 'Mariam';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +16,7 @@
 
 <div class="container">
   <h2 align="center">Add New Expense</h2>
+  <p align="center">Welcome, <?php echo $_SESSION['user']; ?></p>
   <br><br>
   <form class="form-horizontal" action="processExpense.php" method="POST">
     <div class="form-group">

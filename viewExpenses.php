@@ -1,3 +1,7 @@
+<?php
+session_start();
+$_SESSION['user'] = 'ExpenseUser';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +16,7 @@
 
 <div class="container">
   <h2 align="center">My Expenses</h2>
+  <p align="center">Welcome, <?php echo $_SESSION['user']; ?></p>
   <br><br>
 
 <?php
@@ -36,4 +41,4 @@ mysqli_close($conn);
 </div>
 
 </body>
-</html>
+</html> 
