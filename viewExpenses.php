@@ -18,12 +18,12 @@
 
 include("dbcon.php");
 
-$sql = "SELECT id, amount, description, expense_date FROM expenses";
+$sql = "SELECT id, amount, description, expense_date, category_id FROM expenses";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
-        echo "Date: " . $row["expense_date"] . " - Amount: " . $row["amount"]. " - Description: " . $row["description"]. "<br>";
+        echo "Date: " . $row["expense_date"] . " - Category: " . $row["category_id"] . " - Amount: " . $row["amount"]. " - Description: " . $row["description"]. "<br>";
     }
 } else {
     echo "No expenses found";

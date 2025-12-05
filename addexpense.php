@@ -32,6 +32,24 @@
         <input type="date" class="form-control" id="expense_date" name="expense_date">
       </div>
     </div>
+    <div class="form-group">
+      <label class="control-label col-sm-5" for="category_id">Category:</label>
+      <div class="col-sm-7">
+        <select class="form-control" id="category_id" name="category_id">
+          <?php
+          include("dbcon.php");
+          $sql = "SELECT id, name FROM categories";
+          $result = mysqli_query($conn, $sql);
+          
+          while($row = mysqli_fetch_assoc($result)) {
+              echo "<option value='" . $row["id"] . "'>" . $row["name"] . "</option>";
+          }
+          
+          mysqli_close($conn);
+          ?>
+        </select>
+      </div>
+    </div>
     <div class="form-group">        
       <div class="col-sm-offset-5 col-sm-7">
         <button type="submit" class="btn btn-default">Add Expense</button>
