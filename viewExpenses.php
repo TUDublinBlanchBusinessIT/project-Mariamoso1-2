@@ -22,16 +22,26 @@ $_SESSION['user'] = 'ExpenseUser';
 <?php
 
 include("dbcon.php");
+include("ExpenseCalculator.php");
 
 $sql = "SELECT id, amount, description, expense_date, category_id FROM expenses";
 $result = mysqli_query($conn, $sql);
 
+$expenses = array();
+
 if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
         echo "Date: " . $row["expense_date"] . " - Category: " . $row["category_id"] . " - Amount: " . $row["amount"]. " - Description: " . $row["description"]. "<br>";
+        $expenses[] = $row;
     }
 } else {
     echo "No expenses found";
+}
+
+if (count($expenses) > 0) {
+    $calculator = new ExpenseCalculator();
+    $total = $calculator->calculateTotal($expenses);
+    echo "<br><strong>Total: $" . number_format($total, 2) . "</strong>";
 }
 
 mysqli_close($conn);
@@ -41,4 +51,4 @@ mysqli_close($conn);
 </div>
 
 </body>
-</html> 
+</html>
