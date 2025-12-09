@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "usbw";
+$password = "0000";
 $dbname = "expensetracker";
 $port = 3306;
 
