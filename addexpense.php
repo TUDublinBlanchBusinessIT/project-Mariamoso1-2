@@ -22,7 +22,7 @@ $_SESSION['user'] = 'Mariam';
     <div class="form-group">
       <label class="control-label col-sm-5" for="amount">Amount:</label>
       <div class="col-sm-7">
-        <input type="number" step="0.01" class="form-control" id="amount" placeholder="Enter amount" name="amount">
+        <input type="number" step="0.01" class="form-control" id="amount" placeholder="Enter amount in €" name="amount">
       </div>
     </div>
     <div class="form-group">

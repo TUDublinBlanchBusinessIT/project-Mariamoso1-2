@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['user'] = 'ExpenseUser';
+$_SESSION['user'] = 'Mariam';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,9 +21,9 @@ $_SESSION['user'] = 'ExpenseUser';
   
   <div class="row">
     <div class="col-sm-offset-3 col-sm-6 text-center">
-      <a href="addExpense.php" class="btn btn-primary btn-lg btn-block">Add New Expense</a>
+      <a href="addExpense.php" class="btn btn-default btn-lg btn-block">Add New Expense</a>
       <br>
-      <a href="viewExpenses.php" class="btn btn-info btn-lg btn-block">View All Expenses</a>
+      <a href="viewExpenses.php" class="btn btn-default btn-lg btn-block">View All Expenses</a>
     </div>
   </div>
 </div>

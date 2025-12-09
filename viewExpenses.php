@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['user'] = 'ExpenseUser';
+$_SESSION['user'] = 'Mariam';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,6 +17,7 @@ $_SESSION['user'] = 'ExpenseUser';
 <div class="container">
   <h2 align="center">My Expenses</h2>
   <p align="center">Welcome, <?php echo $_SESSION['user']; ?></p>
+  <p align="center"><a href="index.php" class="btn btn-default">Home</a></p>
   <br><br>
 
 <?php
@@ -31,7 +32,8 @@ $expenses = array();
 
 if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
-        echo "Date: " . $row["expense_date"] . " - Category: " . $row["category_id"] . " - Amount: " . $row["amount"]. " - Description: " . $row["description"]. "<br>";
+        echo "Date: " . $row["expense_date"] . " - Category: " . $row["category_id"] . " - Amount: €" . $row["amount"]. " - Description: " . $row["description"];
+       echo " <a href='deleteExpense.php?id=" . $row["id"] . "' class='btn btn-default btn-xs'>Delete</a><br>";
         $expenses[] = $row;
     }
 } else {
@@ -41,7 +43,7 @@ if (mysqli_num_rows($result) > 0) {
 if (count($expenses) > 0) {
     $calculator = new ExpenseCalculator();
     $total = $calculator->calculateTotal($expenses);
-    echo "<br><strong>Total: $" . number_format($total, 2) . "</strong>";
+    echo "<br><strong>Total: €" . number_format($total, 2) . "</strong>";
 }
 
 mysqli_close($conn);
